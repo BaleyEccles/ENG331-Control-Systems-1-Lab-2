@@ -1,0 +1,486 @@
+
+
+03-Jul-2025 17:31:17 Error using simulink.Simulation/start
+Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>' for parameter 'Value'.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+Caused by:
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>'
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+        Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+        Unrecognized function or variable 'Off'.
+        
+        Error in simulink.Simulation/initialize
+        
+        Error in simulink.Simulation/start
+        
+        Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+        
+        Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+            Variable 'Off' does not exist.
+            
+            Error in simulink.Simulation/initialize
+            
+            Error in simulink.Simulation/start
+            
+            Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+            
+            Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Suggested Actions:
+                • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'combined_mdl_wpanel_r2024b', 'Off')">Fix</a>
+                • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'Off', 'combined_mdl_wpanel_r2024b', '', 'normal', 'Value', 'combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable', ' ')">Fix</a>
+
+03-Jul-2025 17:32:28 Error using simulink.Simulation/start
+Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>' for parameter 'Value'.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+Caused by:
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>'
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+        Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+        Unrecognized function or variable 'Off'.
+        
+        Error in simulink.Simulation/initialize
+        
+        Error in simulink.Simulation/start
+        
+        Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+        
+        Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+            Variable 'Off' does not exist.
+            
+            Error in simulink.Simulation/initialize
+            
+            Error in simulink.Simulation/start
+            
+            Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+            
+            Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Suggested Actions:
+                • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'combined_mdl_wpanel_r2024b', 'Off')">Fix</a>
+                • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'Off', 'combined_mdl_wpanel_r2024b', '', 'normal', 'Value', 'combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable', ' ')">Fix</a>
+
+03-Jul-2025 17:33:41 Error using simulink.Simulation/start
+Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>' for parameter 'Value'.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+Caused by:
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable</a>'
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+        Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+        Unrecognized function or variable 'Off'.
+        
+        Error in simulink.Simulation/initialize
+        
+        Error in simulink.Simulation/start
+        
+        Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+        
+        Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+            Variable 'Off' does not exist.
+            
+            Error in simulink.Simulation/initialize
+            
+            Error in simulink.Simulation/start
+            
+            Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+            
+            Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Suggested Actions:
+                • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'combined_mdl_wpanel_r2024b', 'Off')">Fix</a>
+                • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'Off', 'combined_mdl_wpanel_r2024b', '', 'normal', 'Value', 'combined_mdl_wpanel_r2024b/Coupled Tanks System/Disturbance/dist_enable', ' ')">Fix</a>
+
+03-Jul-2025 17:34:07 Error using simulink.Simulation/start
+Invalid setting in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable</a>' for parameter 'Value'.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+Caused by:
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Error evaluating parameter <a href="matlab:Simulink.internal.OpenBlockParamsDialog(['combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable'],'Value');">'Value'</a> in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable</a>'
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+        Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+        Unrecognized function or variable 'Off'.
+        
+        Error in simulink.Simulation/initialize
+        
+        Error in simulink.Simulation/start
+        
+        Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+        
+        Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+            Variable 'Off' does not exist.
+            
+            Error in simulink.Simulation/initialize
+            
+            Error in simulink.Simulation/start
+            
+            Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+            
+            Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+            Suggested Actions:
+                • Load a file into base workspace. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'loadFile', 'combined_mdl_wpanel_r2024b', 'Off')">Fix</a>
+                • Create a new variable. - <a href="matlab:slprivate('robustVarRefHotlink_cb', 'createEntry', 'Off', 'combined_mdl_wpanel_r2024b', '', 'normal', 'Value', 'combined_mdl_wpanel_r2024b/Coupled Tanks System/Reference Signal/input_enable', ' ')">Fix</a>
+
+09-Jul-2025 10:41:08 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Plant - Coupled Tanks/Coupled
+Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 10:41:35 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel_r2024b/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel_r2024b/Coupled Tanks System/Plant - Coupled Tanks/Coupled
+Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 16:37:24 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 16:38:00 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 16:43:38 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 16:56:56 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+09-Jul-2025 17:01:11 Error using simulink.Simulation/start
+Inconsistent numeric values for parameter 'Value' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Simulink Model Configuration','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Simulink Model Configuration</a>':
+Quantized parameter value (int8(2)) is greater than maximum (int8(1))
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+28-Jul-2025 13:57:03 Error using simulink.Simulation/start
+Inconsistent numeric values for parameter 'Value' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Simulink Model Configuration','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Simulink Model Configuration</a>':
+Quantized parameter value (int8(2)) is greater than maximum (int8(1))
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+28-Jul-2025 14:48:39 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+28-Jul-2025 14:50:25 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+28-Jul-2025 14:52:27 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+28-Jul-2025 14:55:19 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+28-Jul-2025 15:00:13 Error using simulink.Simulation/start
+Cannot start a new command line simulation while a simulation has started for the same model.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 15:47:52 Error using simulink.Simulation/start
+Error due to multiple causes.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+Caused by:
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input data dependency violation due to action subsystems. See Subsystem Examples in the Simulink library for valid and invalid examples of action subsystems
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks Model','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks Model</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, 2) of 'combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Merge/Merge_6' are involved in the loop. This message is related to a hidden Merge block.
+    
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, 2) of 'combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Merge/Merge_4' are involved in the loop. This message is related to a hidden Merge block.
+    
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #1','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #1</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #2','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #2</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #3','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #3</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #4','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Case #4</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, 2, 3, 4) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Merge','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Pump Output Configuration/Merge</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (2, Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (Action) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Open Loop','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Open Loop</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+    Error using simulink.sim.internal.SimControlNormalAccel/initializeImpl
+    Input ports (1, 2) of '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Merge','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Merge</a>' are involved in the loop.
+    
+    Error in simulink.Simulation/initialize
+    
+    Error in simulink.Simulation/start
+    
+    Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+    
+    Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 15:52:49 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+30-Jul-2025 15:56:30 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+30-Jul-2025 15:57:05 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+30-Jul-2025 16:18:27 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+30-Jul-2025 16:23:03 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+30-Jul-2025 16:43:51 Error using simulink.Simulation/start
+The block '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop/Output Variable','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop/Output Variable</a>' has a discrete sample time that does not match the sample time [0, 1] of the SwitchCase block
+'<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Switch Case','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Switch Case</a>' controlling its execution.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 16:54:59 Error using simulink.Simulation/start
+The block '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop/Output Variable','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Closed Loop/Output Variable</a>' has a discrete sample time that does not match the sample time [0, 1] of the SwitchCase block
+'<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Feedback/Switch Case','error')">combined_mdl_wpanel/Coupled Tanks System/Feedback/Switch Case</a>' controlling its execution.
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 16:55:54 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 16:56:01 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 16:57:55 Error using simulink.Simulation/start
+Error reported by S-function 'sldrtsi' in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input','error')">combined_mdl_wpanel/Coupled Tanks System/Plant - Coupled Tanks/Coupled Tanks/Stream Input</a>':
+Unable to open serial port
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 17:31:37 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square','error')">combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square</a>': The computed sample time (0.005) is not an integer multiple of the fixed step size (0.1). The period, pulse
+width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 17:31:42 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square','error')">combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square</a>': The computed sample time (0.005) is not an integer multiple of the fixed step size (0.1). The period, pulse
+width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+30-Jul-2025 17:32:38 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square','error')">combined_mdl_wpanel/Coupled Tanks System/Disturbance/dist_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period, pulse
+width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:55:16 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:55:26 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:55:46 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:56:14 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:56:23 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 16:56:33 Error using simulink.Simulation/start
+Error in '<a href="matlab:open_and_hilite_hyperlink ('combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square','error')">combined_mdl_wpanel/Coupled Tanks System/Reference Signal/input_square</a>': The computed sample time (0.05) is not an integer multiple of the fixed step size (0.1). The period,
+pulse width and phase delay parameters of this block need to be integer multiples of the fixed step size
+Error in simulink.ui.control.SimulationControls/startPauseContinueButtonPushed
+Error in simulink.ui.control.SimulationControls>@(o,e)obj.startPauseContinueButtonPushed()
+
+07-Aug-2025 17:09:03 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+07-Aug-2025 17:47:57 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+07-Aug-2025 17:51:45 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
+
+07-Aug-2025 18:04:08 An error occurred during simulation and the simulation was terminated
+Caused by:
+    Maximum missed ticks count exceeded.
