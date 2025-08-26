@@ -1,12 +1,14 @@
 
-
 % load the workspace from the prac first.
+data = load("matlab.mat");
 
-OP_1 = simOut_XXXXXXXX_XXXXXX; % replace with your simout struct for operating point 1
 
-OP_2 = simOut_XXXXXXXX_XXXXXX; % replace with your simout struct for operating point 2
 
-OP_3 = simOut_XXXXXXXX_XXXXXX; % replace with your simout struct for operating point 3
+OP_1 = data.simOut_20250812_143153; % replace with your simout struct for operating point 1
+
+OP_2 = data.simOut_20250812_141648; % replace with your simout struct for operating point 2
+
+OP_3 = data.simOut_20250812_142257; % replace with your simout struct for operating point 3
 
 time_op1 = OP_1.tout; % time
 h1_op1 = OP_1.measurements.Tank_1_Level__m_.Data; % tank 1 height 
@@ -30,7 +32,7 @@ hold on;
 plot(time_op1, h2_op1);
 hold on;
 plot(time_op1, step_op1);
-
+title("op 1")
 
 figure;
 plot(time_op2, smooth(h1_op2));
@@ -38,7 +40,7 @@ hold on;
 plot(time_op2, h2_op2);
 hold on;
 plot(time_op2, step_op2);
-
+title("op 2")
 
 figure;
 plot(time_op3, smooth(h1_op3));
@@ -46,6 +48,6 @@ hold on;
 plot(time_op3, h2_op3);
 hold on;
 plot(time_op3, step_op3);
-
+title("op 3")
 % find final value, gain, settling time, rise time ....
 
