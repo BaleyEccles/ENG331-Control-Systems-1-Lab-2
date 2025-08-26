@@ -26,28 +26,32 @@ h2_op3 = OP_3.measurements.Tank_2_Level__m_.Data;
 step_op3 = OP_3.ref_signal.Data;
 
 
-figure;
+Fig_1 = figure('Visible', 'off');
 plot(time_op1, smooth(h1_op1)); % may need smoothing - depending on how noisy the signal is
 hold on;
-plot(time_op1, h2_op1);
+plot(time_op1, smooth(h2_op1));
 hold on;
 plot(time_op1, step_op1);
 title("op 1")
+saveas(gcf, 'Fig_1.png'); % matlab crashes if i render it. So save it to a png
 
-figure;
+Fig_2 = figure('Visible', 'off');
 plot(time_op2, smooth(h1_op2));
 hold on;
-plot(time_op2, h2_op2);
+plot(time_op2, smooth(h2_op2));
 hold on;
 plot(time_op2, step_op2);
 title("op 2")
+saveas(gcf, 'Fig_2.png');
 
-figure;
+Fig_3 = figure('Visible', 'off');
 plot(time_op3, smooth(h1_op3));
 hold on;
-plot(time_op3, h2_op3);
+plot(time_op3, smooth(h2_op3));
 hold on;
 plot(time_op3, step_op3);
 title("op 3")
+saveas(gcf, 'Fig_3.png');
+
 % find final value, gain, settling time, rise time ....
 
