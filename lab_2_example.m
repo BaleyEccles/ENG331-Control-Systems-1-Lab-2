@@ -26,7 +26,7 @@ h2_op3 = OP_3.measurements.Tank_2_Level__m_.Data;
 step_op3 = OP_3.ref_signal.Data;
 
 
-Fig_1 = figure
+Fig_1 = figure('Visible', 'off')
 plot(time_op1, smooth(h1_op1)); % may need smoothing - depending on how noisy the signal is
 hold on;
 plot(time_op1, smooth(h2_op1));
@@ -36,7 +36,7 @@ title("op 1")
 legend("h1", "h2", "step")
 saveas(gcf, 'Fig_1.png'); % matlab crashes if i render it. So save it to a png
 
-Fig_2 = figure
+Fig_2 = figure('Visible', 'off')
 plot(time_op2, smooth(h1_op2));
 hold on;
 plot(time_op2, smooth(h2_op2));
@@ -46,7 +46,7 @@ title("op 2")
 legend("h1", "h2", "step")
 saveas(gcf, 'Fig_2.png');
 
-Fig_3 = figure
+Fig_3 = figure('Visible', 'off')
 plot(time_op3, smooth(h1_op3));
 hold on;
 plot(time_op3, smooth(h2_op3));
@@ -66,6 +66,70 @@ saveas(gcf, 'Fig_3.png');
 [Final_Value_op1_h2, Gain_op1_h2, Settling_Time_op1_h2] = find_vals(smooth(h2_op1), step_op1, time_op1)
 [Final_Value_op2_h2, Gain_op2_h2, Settling_Time_op2_h2] = find_vals(smooth(h2_op2), step_op2, time_op2)
 [Final_Value_op3_h2, Gain_op3_h2, Settling_Time_op3_h2] = find_vals(smooth(h2_op3), step_op3, time_op3)
+
+
+% Non linear simulink model
+t = 0:0.1:100;
+steps = [9, 8; 9, 10; 5, 4; 5, 6; 7, 6; 7, 8];
+
+Non_linear_data = []; % array of the data that the simulink model will output
+open_system('non_linear_h1_h2');
+
+[numRows, numCols] = size(steps);
+for idx = 1:numRows
+    i = steps(idx, 1)*ones(size(t));
+    i(t >= 1) = steps(idx, 2);
+    sim_input = timeseries(i, t);
+    assignin('base', 'sim_input', sim_input)
+
+    simOut = sim('non_linear_h1_h2');
+    results = simOut.get('logsout');
+    Non_linear_data = [Non_linear_data, results];
+end
+
+for idx = 1:length(Non_linear_data)
+    d = Non_linear_data(idx);
+    step = d{1}.Values.Data(1, 1, :);
+    h1 = d{2}.Values(:, 1).Data;
+    time1 = d{2}.Values(:, 1).Time;
+    h2 = d{3}.Values(:, 1).Data;
+    time2 = d{3}.Values(:, 1).Time;
+    fprintf("For %i to %i\n", step(1), step(end));
+    [FV1, G1, ST1] = find_vals(h1, step, time1)
+    [FV2, G2, ST2] = find_vals(h2, step, time2)
+end
+
+% linearsied simulink model
+t = 0:0.1:100;
+steps = [9, 8; 9, 10; 5, 4; 5, 6; 7, 6; 7, 8];
+
+Non_linear_data = []; % array of the data that the simulink model will output
+open_system('linear_h1');
+
+[numRows, numCols] = size(steps);
+for idx = 1:numRows
+    i = steps(idx, 1)*ones(size(t));
+    i(t >= 1) = steps(idx, 2);
+    sim_input = timeseries(i, t);
+    assignin('base', 'sim_input', sim_input)
+
+    simOut = sim('linear_h1');
+    results = simOut.get('logsout');
+    Non_linear_data = [Non_linear_data, results];
+end
+
+for idx = 1:length(Non_linear_data)
+    d = Non_linear_data(idx);
+    step = d{1}.Values.Data(1, 1, :);
+    h1 = d{2}.Values(:, 1).Data;
+    time1 = d{2}.Values(:, 1).Time;
+    h2 = d{3}.Values(:, 1).Data;
+    time2 = d{3}.Values(:, 1).Time;
+    fprintf("For %i to %i\n", step(1), step(end));
+    [FV1, G1, ST1] = find_vals(h1, step, time1)
+    [FV2, G2, ST2] = find_vals(h2, step, time2)
+end
+
 
 function [FV_array, G_array, ST_array] = find_vals(h, step, time)
     dif = diff(step);
@@ -89,10 +153,10 @@ function [FV_array, G_array, ST_array] = find_vals(h, step, time)
             
             FV_array = [FV_array, FV];
             G_array = [G_array, G];
-            ST_array = [ST_array, ST_pos];            
+            ST_array = [ST_array, time(ST_pos) - time(start_pos)];
         end
     end
-    ST_array = time(ST_array);
+
     
 end
 
