@@ -87,6 +87,8 @@ for idx = 1:numRows
     Non_linear_data = [Non_linear_data, results];
 end
 
+fprintf("h1 non-linear:\n");
+fprintf("| Voltage | step | Final Value | Gain | Settling Time|\n");
 for idx = 1:length(Non_linear_data)
     d = Non_linear_data(idx);
     step = d{1}.Values.Data(1, 1, :);
@@ -94,16 +96,30 @@ for idx = 1:length(Non_linear_data)
     time1 = d{2}.Values(:, 1).Time;
     h2 = d{3}.Values(:, 1).Data;
     time2 = d{3}.Values(:, 1).Time;
-    fprintf("For %i to %i\n", step(1), step(end));
-    [FV1, G1, ST1] = find_vals(h1, step, time1)
-    [FV2, G2, ST2] = find_vals(h2, step, time2)
+    %fprintf("For %i to %i\n", step(1), step(end));
+    [FV, G, ST] = find_vals(h1, step, time1);
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
+end
+
+fprintf("h2 non-linear:\n");
+fprintf("| Voltage | step | Final Value | Gain | Settling Time|\n");
+for idx = 1:length(Non_linear_data)
+    d = Non_linear_data(idx);
+    step = d{1}.Values.Data(1, 1, :);
+    h1 = d{2}.Values(:, 1).Data;
+    time1 = d{2}.Values(:, 1).Time;
+    h2 = d{3}.Values(:, 1).Data;
+    time2 = d{3}.Values(:, 1).Time;
+    [FV, G, ST] = find_vals(h2, step, time2);
+    %fprintf("For %i to %i\n", step(1), step(end));
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
 % linearsied simulink model
 t = 0:0.1:100;
 steps = [9, 8; 9, 10; 5, 4; 5, 6; 7, 6; 7, 8];
 
-Non_linear_data = []; % array of the data that the simulink model will output
+linear_data = []; % array of the data that the simulink model will output
 open_system('linear_h1');
 
 [numRows, numCols] = size(steps);
@@ -115,19 +131,20 @@ for idx = 1:numRows
 
     simOut = sim('linear_h1');
     results = simOut.get('logsout');
-    Non_linear_data = [Non_linear_data, results];
+    linear_data = [linear_data, results];
 end
 
-for idx = 1:length(Non_linear_data)
-    d = Non_linear_data(idx);
-    step = d{1}.Values.Data(1, 1, :);
-    h1 = d{2}.Values(:, 1).Data;
+fprintf("h1 linear:\n");
+fprintf("| Voltage | step | Final Value | Gain | Settling Time|\n");
+for idx = 1:length(linear_data)
+    d = linear_data(idx);
+    step = d{2}.Values.Data(1, 1, :);
+    h1 = d{1}.Values(:, 1).Data;
     time1 = d{2}.Values(:, 1).Time;
-    h2 = d{3}.Values(:, 1).Data;
-    time2 = d{3}.Values(:, 1).Time;
-    fprintf("For %i to %i\n", step(1), step(end));
-    [FV1, G1, ST1] = find_vals(h1, step, time1)
-    [FV2, G2, ST2] = find_vals(h2, step, time2)
+    %fprintf("For %i to %i\n", step(1), step(end));
+    [FV, G, ST] = find_vals(h1, step, time1);
+
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
 
