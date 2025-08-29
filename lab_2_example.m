@@ -28,6 +28,7 @@ h2_op3 = OP_3.measurements.Tank_2_Level__m_.Data;
 step_op3 = OP_3.ref_signal.Data;
 
 
+
 Fig_1 = figure('visible', 'off');
 plot(time_op1, smooth(h1_op1)); % may need smoothing - depending on how noisy the signal is
 hold on;
@@ -48,6 +49,7 @@ title("Operating Point 2")
 legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
 saveas(gcf, 'ENG331_Lab_2_OP_2.png');
 
+
 Fig_3 = figure('visible', 'off');
 plot(time_op3, smooth(h1_op3));
 hold on;
@@ -58,15 +60,54 @@ title("Operating Point 3")
 legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
 saveas(gcf, 'ENG331_Lab_2_OP_3.png');
 
+Fig_4 = figure();
+plot(time_op3, smooth(h1_op3)); hold on;
+plot(time_op3, smooth(h2_op3));
+plot(time_op3, step_op3);
+title("2nd Order Estimations vs Empirical Model");
+legend("h1", "h2", "Step Input",'Location','southeast');
+
+% --- Estimated transfer function ---
+num = 0.1344;
+den = [1 0.4704 0.0384];
+G = tf(num, den);
+
+% Build Δu relative to first input value
+du = step_op3 - step_op3(1);
+
+% Use Δu → Δy and add initial operating point of h1
+dy_hat = lsim(G, du, time_op3);   % modelled delta output
+y_hat = 14.5+dy_hat ;
+
+% Overlay model response
+plot(time_op3, y_hat, 'k', 'LineWidth', 1.5, 'DisplayName', '2nd Order Estimation');
+
+% Control Toolbox Estimation
+% Build Δu relative to first input value
+du = step_op3 - step_op3(1);
+
+% Use Δu → Δy and add initial operating point of h1
+num2=0.01126;
+den2=[1 0.129 0.005497];
+tf1=tf(num2,den2);
+dy_hat2 = lsim(tf1, du, time_op3);   % modelled delta output
+y_hat2 = 14.5+dy_hat2 ;
+
+% Overlay model response
+plot(time_op3, y_hat2, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems Toolbox Estimation');
+
+%saveas(gcf, 'Fig_3.png');
+
 % find final value, gain, settling time, rise time ....
 
-[OP_op1_h1, Final_Value_op1_h1, Gain_op1_h1, Settling_Time_op1_h1] = find_vals(smooth(h1_op1), step_op1, time_op1)
-[OP_op2_h1, Final_Value_op2_h1, Gain_op2_h1, Settling_Time_op2_h1] = find_vals(smooth(h1_op2), step_op2, time_op2)
-[OP_op3_h1, Final_Value_op3_h1, Gain_op3_h1, Settling_Time_op3_h1] = find_vals(smooth(h1_op3), step_op3, time_op3)
 
-[OP_op1_h2, Final_Value_op1_h2, Gain_op1_h2, Settling_Time_op1_h2] = find_vals(smooth(h2_op1), step_op1, time_op1)
-[OP_op2_h2, Final_Value_op2_h2, Gain_op2_h2, Settling_Time_op2_h2] = find_vals(smooth(h2_op2), step_op2, time_op2)
-[OP_op3_h2, Final_Value_op3_h2, Gain_op3_h2, Settling_Time_op3_h2] = find_vals(smooth(h2_op3), step_op3, time_op3)
+[Final_Value_op1_h1, Gain_op1_h1, Settling_Time_op1_h1] = find_vals(smooth(h1_op1), step_op1, time_op1)
+[Final_Value_op2_h1, Gain_op2_h1, Settling_Time_op2_h1] = find_vals(smooth(h1_op2), step_op2, time_op2)
+[Final_Value_op3_h1, Gain_op3_h1, Settling_Time_op3_h1] = find_vals(smooth(h1_op3), step_op3, time_op3)
+
+[Final_Value_op1_h2, Gain_op1_h2, Settling_Time_op1_h2] = find_vals(smooth(h2_op1), step_op1, time_op1)
+[Final_Value_op2_h2, Gain_op2_h2, Settling_Time_op2_h2] = find_vals(smooth(h2_op2), step_op2, time_op2)
+[Final_Value_op3_h2, Gain_op3_h2, Settling_Time_op3_h2] = find_vals(smooth(h2_op3), step_op3, time_op3)
 
 
 % Non linear simulink model
@@ -98,12 +139,12 @@ for idx = 1:length(Non_linear_data)
     h2 = d{3}.Values(:, 1).Data;
     time2 = d{3}.Values(:, 1).Time;
     %fprintf("For %i to %i\n", step(1), step(end));
-    [OP, FV, G, ST] = find_vals(h1, step, time1);
-    fprintf("| (%i, %i) | $%iV$ | %i | %i | %i|\n", OP , step(1), step(end) - step(1), FV, G, ST);
+    [FV, G, ST] = find_vals(h1, step, time1);
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
 fprintf("h2 non-linear:\n");
-fprintf("| Operating Point | step | Final Value | Gain | Settling Time|\n");
+fprintf("| Voltage | step | Final Value | Gain | Settling Time|\n");
 for idx = 1:length(Non_linear_data)
     d = Non_linear_data(idx);
     step = d{1}.Values.Data(1, 1, :);
@@ -111,9 +152,9 @@ for idx = 1:length(Non_linear_data)
     time1 = d{2}.Values(:, 1).Time;
     h2 = d{3}.Values(:, 1).Data;
     time2 = d{3}.Values(:, 1).Time;
-    [OP, FV, G, ST] = find_vals(h2, step, time2);
+    [FV, G, ST] = find_vals(h2, step, time2);
     %fprintf("For %i to %i\n", step(1), step(end));
-    fprintf("| (%i, %i) | $%iV$ | %i | %i | %i|\n", OP , step(1), step(end) - step(1), FV, G, ST);
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
 % linearsied simulink model
@@ -126,7 +167,7 @@ open_system('linear_h1');
 [numRows, numCols] = size(steps);
 for idx = 1:numRows
     i = steps(idx, 1)*ones(size(t));
-    i(t >= 60) = steps(idx, 2);
+    i(t >= 1) = steps(idx, 2);
     sim_input = timeseries(i, t);
     assignin('base', 'sim_input', sim_input)
 
@@ -143,9 +184,9 @@ for idx = 1:length(linear_data)
     h1 = d{1}.Values(:, 1).Data;
     time1 = d{2}.Values(:, 1).Time;
     %fprintf("For %i to %i\n", step(1), step(end));
-    [OP, FV, G, ST] = find_vals(h1, step, time1);
+    [FV, G, ST] = find_vals(h1, step, time1);
 
-    fprintf("| (%i, %i) | $%iV$ | %i | %i | %i|\n", OP , step(1), step(end) - step(1), FV, G, ST);
+    fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
 %h2 linear
@@ -188,9 +229,8 @@ for idx = 1:length(linear_data)
     end
 end
 
-function [OP, FV_array, G_array, ST_array] = find_vals(h, step, time)
+function [FV_array, G_array, ST_array] = find_vals(h, step, time)
     dif = diff(step);
-    OP_array = [];
     FV_array = [];
     G_array = [];
     ST_array = [];
@@ -209,8 +249,6 @@ function [OP, FV_array, G_array, ST_array] = find_vals(h, step, time)
             FV = final_value(h, ST_pos, end_pos);
             G = (FV - h(start_pos))/(step(end_pos) - step(start_pos));
             
-            OP = inital_value(h, start_pos);
-            OP_array = [OP_array, OP];
             FV_array = [FV_array, FV];
             G_array = [G_array, G];
             ST_array = [ST_array, time(ST_pos) - time(start_pos)];
@@ -242,12 +280,4 @@ end
 
 function FV = final_value(h, ST_pos, end_pos)
     FV = mean(h(ST_pos:end_pos));
-end
-
-function OP = inital_value(h, OP_pos)
-    if OP_pos > 50
-        OP = mean(h(((OP_pos - 50):OP_pos)));
-    else
-        OP = h(OP_pos);
-    end
 end
