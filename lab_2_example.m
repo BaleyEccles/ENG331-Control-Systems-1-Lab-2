@@ -98,6 +98,23 @@ plot(time_op3, y_hat2, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems 
 
 %saveas(gcf, 'Fig_3.png');
 
+Fig_5=figure();
+plot(time_op1, smooth(h1_op1)); 
+hold on;
+plot(time_op1, smooth(h2_op1));
+hold on;
+plot(time_op1, step_op1);
+hold on;
+title("2nd Order Estimations vs 9V Operating Point");
+legend("h1", "h2", "Step Input",'Location','southeast');
+du1 = step_op1 - step_op1(1);
+dy_hat3 = lsim(G, du1, time_op1);   % modelled delta output
+y_hat3 = 19.5+dy_hat3 ;
+plot(time_op1, y_hat3, 'k', 'LineWidth', 1.5, 'DisplayName', 'Theoretical Estimation');
+dy_hat4 = lsim(tf1, du1, time_op1);   % modelled delta output
+y_hat4 = 19.5+dy_hat4 ;
+plot(time_op1, y_hat4, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems Toolbox Estimation');
+
 % find final value, gain, settling time, rise time ....
 
 
