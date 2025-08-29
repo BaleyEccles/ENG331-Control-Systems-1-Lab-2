@@ -3,6 +3,8 @@ close all
 data = load("matlab.mat");
 
 
+set(0, 'DefaultLineLineWidth', 1.25); % make png plots look better
+
 
 OP_1 = data.simOut_20250812_143153; % replace with your simout struct for operating point 1
 
@@ -26,35 +28,37 @@ h2_op3 = OP_3.measurements.Tank_2_Level__m_.Data;
 step_op3 = OP_3.ref_signal.Data;
 
 
-Fig_1 = figure()
+
+Fig_1 = figure('visible', 'off');
 plot(time_op1, smooth(h1_op1)); % may need smoothing - depending on how noisy the signal is
 hold on;
 plot(time_op1, smooth(h2_op1));
 hold on;
 plot(time_op1, step_op1);
-title("op 1")
-legend("h1", "h2", "step")
-saveas(gcf, 'Fig_1.png'); % matlab crashes if i render it. So save it to a png
+title("Operating Point 1")
+legend("Tank 1", "Tank 2", "Voltage", 'Location', 'southeast')
+saveas(gcf, 'ENG331_Lab_2_OP_1.png'); % matlab crashes if i render it. So save it to a png
 
-Fig_2 = figure()
+Fig_2 = figure('visible', 'off');
 plot(time_op2, smooth(h1_op2));
 hold on;
 plot(time_op2, smooth(h2_op2));
 hold on;
 plot(time_op2, step_op2);
-title("op 2")
-legend("h1", "h2", "step")
-saveas(gcf, 'Fig_2.png');
+title("Operating Point 2")
+legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
+saveas(gcf, 'ENG331_Lab_2_OP_2.png');
 
-Fig_3 = figure()
+
+Fig_3 = figure('visible', 'off');
 plot(time_op3, smooth(h1_op3));
 hold on;
 plot(time_op3, smooth(h2_op3));
 hold on;
 plot(time_op3, step_op3);
-title("op 3")
-legend("h1", "h2", "step")
-saveas(gcf, 'Fig_3.png');
+title("Operating Point 3")
+legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
+saveas(gcf, 'ENG331_Lab_2_OP_3.png');
 
 Fig_4 = figure();
 plot(time_op3, smooth(h1_op3)); hold on;
@@ -185,6 +189,45 @@ for idx = 1:length(linear_data)
     fprintf("| %i | $%iV$ | %i | %i | %i|\n", step(1), step(end) - step(1), FV, G, ST);
 end
 
+%h2 linear
+t = 0:0.1:200;
+steps = [9, 8; 9, 10; 5, 4; 5, 6; 7, 6; 7, 8];
+
+linear_data = []; % array of the data that the simulink model will output
+open_system('linear_h2');
+
+[numRows, numCols] = size(steps);
+for idx = 1:numRows
+    i = steps(idx, 1)*ones(size(t));
+    i(t >= 100) = steps(idx, 2);
+    sim_input = timeseries(i, t);
+    assignin('base', 'sim_input', sim_input)
+
+    simOut = sim('linear_h2');
+    results = simOut.get('logsout');
+    linear_data = [linear_data, results];
+end
+
+
+fprintf("h2 linear:\n");
+fprintf("| Voltage | step | Final Value | Gain | Settling Time|\n");
+for idx = 1:length(linear_data)
+    d = linear_data(idx);
+    step = d{2}.Values.Data(1, 1, :);
+    h1 = d{1}.Values(:, 1).Data;
+    time1 = d{2}.Values(:, 1).Time;
+    %fprintf("For %i to %i\n", step(1), step(end));
+    [OP, FV, G, ST] = find_vals(h1, step, time1);
+    a = 0;
+    for idx = 1:length(FV)
+        for jdx = 1:length(ST)
+            for kdx = 1:length(G)
+                fprintf("%i | (%i, %i) | $%iV$ | %i | %i | %i|\n", a, OP , step(1), step(end) - step(1), FV(idx), G(kdx), ST(jdx));
+                a = a + 1;
+            end
+        end
+    end
+end
 
 function [FV_array, G_array, ST_array] = find_vals(h, step, time)
     dif = diff(step);
