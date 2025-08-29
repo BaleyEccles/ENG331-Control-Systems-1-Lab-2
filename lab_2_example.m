@@ -60,7 +60,7 @@ title("Operating Point 3")
 legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
 saveas(gcf, 'ENG331_Lab_2_OP_3.png');
 
-Fig_4 = figure();
+Fig_4 = figure('visible', 'off');
 plot(time_op3, smooth(h1_op3)); hold on;
 plot(time_op3, smooth(h2_op3));
 plot(time_op3, step_op3);
@@ -96,9 +96,9 @@ y_hat2 = 14.5+dy_hat2 ;
 % Overlay model response
 plot(time_op3, y_hat2, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems Toolbox Estimation');
 
-%saveas(gcf, 'Fig_3.png');
+saveas(gcf, 'ENG331_Lab_2_Comparison.png');
 
-Fig_5=figure();
+Fig_5 = figure('visible', 'off');
 plot(time_op1, smooth(h1_op1)); 
 hold on;
 plot(time_op1, smooth(h2_op1));
@@ -114,6 +114,8 @@ plot(time_op1, y_hat3, 'k', 'LineWidth', 1.5, 'DisplayName', 'Theoretical Estima
 dy_hat4 = lsim(tf1, du1, time_op1);   % modelled delta output
 y_hat4 = 19.5+dy_hat4 ;
 plot(time_op1, y_hat4, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems Toolbox Estimation');
+
+saveas(gcf, 'ENG331_Lab_2_Comparison_OP_1.png');
 
 % find final value, gain, settling time, rise time ....
 
@@ -246,8 +248,9 @@ for idx = 1:length(linear_data)
     end
 end
 
-function [FV_array, G_array, ST_array] = find_vals(h, step, time)
+function [OP, FV_array, G_array, ST_array] = find_vals(h, step, time)
     dif = diff(step);
+    OP_array = [];
     FV_array = [];
     G_array = [];
     ST_array = [];
@@ -266,6 +269,8 @@ function [FV_array, G_array, ST_array] = find_vals(h, step, time)
             FV = final_value(h, ST_pos, end_pos);
             G = (FV - h(start_pos))/(step(end_pos) - step(start_pos));
             
+            OP = inital_value(h, start_pos);
+            OP_array = [OP_array, OP];
             FV_array = [FV_array, FV];
             G_array = [G_array, G];
             ST_array = [ST_array, time(ST_pos) - time(start_pos)];
@@ -297,4 +302,12 @@ end
 
 function FV = final_value(h, ST_pos, end_pos)
     FV = mean(h(ST_pos:end_pos));
+end
+
+function OP = inital_value(h, OP_pos)
+    if OP_pos > 50
+        OP = mean(h(((OP_pos - 50):OP_pos)));
+    else
+        OP = h(OP_pos);
+    end
 end
