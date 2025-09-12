@@ -1,0 +1,308 @@
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\usepackage{minted}
+
+\usepackage{fontspec}
+
+\setmonofont{Iosevka}
+
+\setminted{fontsize=\small, frame=single, breaklines=true}
+
+\usemintedstyle{emacs}
+
+\usepackage{float}
+
+\setlength{\parindent}{0pt}
+
+#+STARTUP: latexpreview
+#+FILETAGS: :Assignment:UTAS:2025:
+#+STARTUP: latexpreview
+* Task 2 - Plant Construction
+:PROPERTIES:
+:CUSTOM_ID: task-2---plant-construction
+:END:
+** Part 1 - System Familiarisation and Calibration
+:PROPERTIES:
+:CUSTOM_ID: part-1---system-familiarisation-and-calibration
+:END:
+*** Calibration
+:PROPERTIES:
+:CUSTOM_ID: calibration
+:END:
+| Actual Tank 1 Height \(h_{1,i}\) | Uncalibrated value \(v_{1,i}\) | Actual tank 2 height \(h_{2,i}\) | Uncalibrated value \(v_{2,i}\) |
+| 4                                | 80                             | 8.5                              | 130                            |
+| 11.5                             | 220                            | 22                               | 540                            |
+#+caption: DONE: /Measured Tank Heights:/
+
+:DONE: /Calculated Scale and Offset/ Solving the following system of
+equations for Tank 1: \[\begin{cases}
+4  &= 80\cdot\textrm{scale} + \textrm{offset} \\
+11.5  &= 220\cdot\textrm{scale} + \textrm{offset}
+\end{cases}\] We get \(\textrm{scale} = 0.05357\) and
+\(\textrm{offset} = -0.2857\)
+
+Solving the following system of equations for Tank 2: \[\begin{cases}
+8.5  &= 130\cdot\textrm{scale} + \textrm{offset} \\
+22  &= 540\cdot\textrm{scale} + \textrm{offset}
+\end{cases}\] We get \(\textrm{scale} = 0.03293\) and
+\(\textrm{offset} = 4.22\)
+
+*** Tank Parameters
+:PROPERTIES:
+:CUSTOM_ID: tank-parameters
+:END:
+:DONE: /Record tank diameter, nozzle size for each tank:/ The bottom
+nozzle diameter (Tank 2) was recorded to be 4mm. Whereas the top nozzle
+diameter (Tank 1) was recorded to be 5mm.
+
+The diameter of Tank 2 was recorded to be 4.5cm, likewise the diameter
+of Tank 1 was also recorded to be 4.5cm.
+
+** Part 2 - System Identification
+:PROPERTIES:
+:CUSTOM_ID: part-2---system-identification
+:END:
+*** Pump Gain
+:PROPERTIES:
+:CUSTOM_ID: pump-gain
+:END:
+:DONE: /Record the approximate pump gain:/ If we set the pump voltage to
+\(V_p = 10V\) it takes \(t = 11s\) to fill the tank to \(h = 20cm\).
+This data allows us to calculate the pump gain.
+
+\begin{align*}
+\textrm{Vol} &= \pi r^2 h \\
+\textrm{Vol} &= \pi (4.5/2)^2 \cdot 20 \\
+\textrm{Vol} &= 0.000318 m^3 \\
+\end{align*}
+\begin{align*}
+q_0 &= \frac{\textrm{Vol}}{t} \\
+q_0 &= \frac{0.000318}{11} \\
+q_0 &= 0.000029 m^3/s \\
+\end{align*}
+\begin{align*}
+\textrm{Pump Gain} &= \frac{q_0}{V_p} \\
+\textrm{Pump Gain} &= \frac{0.000029}{10} \\
+\textrm{Pump Gain} &= 0.000003 \\
+\end{align*}
+If we set the pump voltage to \(V_p = 5V\) it takes \(t = 17.41s\) to
+fill the tank to \(h = 20cm\). Once again, this data allows us to
+calculate the pump gain.
+
+\begin{align*}
+\textrm{Vol} &= \pi r^2 h \\
+\textrm{Vol} &= \pi (4.5/2)^2\cdot 20 \\
+\textrm{Vol} &= 0.000318 m^3 \\
+\end{align*}
+\begin{align*}
+q_0 &= \frac{\textrm{Vol}}{t} \\
+q_0 &= \frac{0.000318}{17.41s} \\
+q_0 &= 0.000018 m^3/s \\
+\end{align*}
+\begin{align*}
+\textrm{Pump Gain} &= \frac{q_0}{V_p} \\
+\textrm{Pump Gain} &= \frac{0.000018}{5} \\
+\textrm{Pump Gain} &= 0.000004 \\
+\end{align*}
+:TODO: /How well does our assumption of a linear relationship between
+output flow and pump voltage hold in this case?/
+
+:TODO: /Will this have a significant effect on the accuracy of our
+theoretical model? Why/why not?/
+
+*** Discharge Coefficient
+:PROPERTIES:
+:CUSTOM_ID: discharge-coefficient
+:END:
+:TODO: /Record the estimated \(C_d\) for each tank:/ :NOTE: During the
+lab the we had Zeke attempt this too and he also could not calculate it.
+We were getting a value that was ?greater than one?, which is impossible
+and does not make sense.
+
+Tank 1: From 10->25 t = 10s \(Vol = \pi (4.5/2)^2 (25 - 10)\)
+\(Vol = 0.000239m^3\) \(q_1 = \frac{Vol}{t}\) \(q_1 = 0.000024\)
+
+\(C_{d,1} = \frac{q_1}{q_{1,ideal}}\)
+
+Tank 2: from 4->26.5 \(h_1 = 11cm\) t = 15.44s
+
+Something went wrong :(
+
+1. IGNORE
+
+   From 4->25 t = 14.5s \(Vol = \pi (4.5/2)^2 (25 - 4)\)
+   \(Vol = 0.000334m^3\) \(q_2 = \frac{Vol}{t}\) \(q_2 = 0.000023\)
+
+   \(C_{d,2} = \frac{q_2}{q_{2,ideal}}\)
+
+   \[q_{out} = \frac{\pi}{4} D^2 C_d\sqrt{2gh_1}\]
+   \[q_{out} = \frac{\Delta Vol}{t}\]
+
+2. WRONG
+
+   Tank 1: t = 15s \(Vol = \pi (4.5/2)^2 25\) \(Vol = 0.000498m^3\)
+
+   \(q_{out,1} = 0.000498/15\) \(q_{out,1} = 0.000027\)
+
+   $C_{d} = $
+
+   Tank 2: t = 20s \(Vol = \pi (4.5/2)^2 25\) \(Vol = 0.000498m^3\)
+
+   \(q_{out,1} = 0.000498/20\) \(q_{out,1} = 0.00002\)
+
+*** Tank Model
+:PROPERTIES:
+:CUSTOM_ID: tank-model
+:END:
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+| 4.2, 5                  | \(-1V\)      | 2.21                                             | 2.03                                                                                            | 15.1                       |
+| 4.2, 5                  | \(+1V\)      | 6.12                                             | 1.89                                                                                            | 8.9                        |
+| 6.7, 7                  | \(-1V\)      | 5.71                                             | 1.11                                                                                            | 11.1                       |
+| 6.7, 7                  | \(+1V\)      | 7.76                                             | 1.04                                                                                            | 8.9                        |
+| 8.5, 9                  | \(-1V\)      | 7.68                                             | 0.90                                                                                            | 10.2                       |
+| 8.5, 9                  | \(+1V\)      | 9.53                                             | 1.44                                                                                            | 23.0                       |
+#+caption: DONE: Experimental: This table was filled in using the code
+seen in :TODO: Appendix X NOTE: Copy code from matlab into appendix,
+just the functions
+
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+| 5                       | \(-1V\)      | 1.951205e+00                                     | 1.053408e+00                                                                                    | 22                         |
+| 5                       | \(1V\)       | 4.258067e+00                                     | 1.253454e+00                                                                                    | 24                         |
+| 7                       | \(-1V\)      | 4.410621e+00                                     | 1.478420e+00                                                                                    | 26                         |
+| 7                       | \(1V\)       | 7.533171e+00                                     | 1.644130e+00                                                                                    | 26                         |
+| 9                       | \(-1V\)      | 7.876880e+00                                     | 1.858066e+00                                                                                    | 28                         |
+| 9                       | \(1V\)       | 1.173084e+01                                     | 1.995890e+00                                                                                    | 28                         |
+#+caption: DONE: Non Linear Model:
+
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+#+caption: TODO: Linearised Model:
+
+:TODO: /Comment on differences between the non-linear and linearised
+model estimates and the observed response:/
+
+:TODO: /a) Did you observe a difference in response for positive or
+negative input perturbations? Can you explain this?/ :TODO: /b) Explain
+any differences between nonlinear model and experimental?/ :DONE: /c)
+Would you expect the linearised model to fit the data worse if the step
+size was increased?/ We would expect the linearised model to perform
+worse with larger step sizes. This is because the linearised model works
+around a operating point, the further away from that point the less
+accurate the linear approximation works.
+
+*** Coupled Tank Model
+:PROPERTIES:
+:CUSTOM_ID: coupled-tank-model
+:END:
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+| 9.0, 5                  | \(-1V\)      | 6.8791                                           | 2.4121                                                                                          | 23.4                       |
+| 9.0, 5                  | \(+1V\)      | 11.2303                                          | 1.8601                                                                                          | 25.4                       |
+| 14.5, 7                 | \(-1V\)      | 11.9198                                          | 2.7390                                                                                          | 17.9                       |
+| 14.5, 7                 | \(+1V\)      | 16.6517                                          | 2.3749                                                                                          | 2.6                        |
+| 19.5, 9                 | \(-1V\)      | 17.7358                                          | 2.4684                                                                                          | 13.3                       |
+| 19.5, 9                 | \(+1V\)      | 21.3884                                          | 1.4476                                                                                          | 15.2                       |
+#+caption: TODO: Experimental:
+
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+| 5                       | \(-1V\)      | 5.171287e+00                                     | 2.164194e+00                                                                                    | 38                         |
+| 5                       | \(1V\)       | 9.645496e+00                                     | 2.310015e+00                                                                                    | 40                         |
+| 7                       | \(-1V\)      | 1.182028e+01                                     | 2.557262e+00                                                                                    | 40                         |
+| 7                       | \(1V\)       | 1.694314e+01                                     | 2.565595e+00                                                                                    | 40                         |
+| 9                       | \(-1V\)      | 2.106993e+01                                     | 2.697029e+00                                                                                    | 40                         |
+| 9                       | \(1V\)       | 2.638299e+01                                     | 2.616032e+00                                                                                    | 38                         |
+#+caption: TODO: Non Linear Model:
+
+| Operating point (cm, V) | Step (Volts) | Final Value (\(h_1 (t\rightarrow \infty)\)) (cm) | Gain (\(\frac{h_1(t\rightarrow \infty) - h_{1,0}}{V_P(t\rightarrow \infty) - V_{P,0}}\)) (cm/V) | 2% Settling Time (seconds) |
+#+caption: TODO: Linearised Model:
+
+:TODO: /Comment on differences between the non-linear and linearised
+model estimates and the observed response:/ :TODO: /a) Did you observe a
+difference in response for positive or negative input perturbations? Can
+you explain this?/ :TODO: /b) Explain any differences between nonlinear
+model and experimental?/ :TODO: /c) Would you expect the linearised
+model to fit the data worse if the step size was increased?/ :TODO: /d)
+Is it possible for this system to exhibit overshoot?/
+
+** Part 3 -- Model Estimation
+:PROPERTIES:
+:CUSTOM_ID: part-3-model-estimation
+:END:
+*** 1. From the empirical data in configuration #3 (previous table), estimate a 2nd order Laplace domain model for the plant at one of the operating points.
+:PROPERTIES:
+:CUSTOM_ID: from-the-empirical-data-in-configuration-3-previous-table-estimate-a-2nd-order-laplace-domain-model-for-the-plant-at-one-of-the-operating-points.
+:END:
+*Selected operating point initial and final value for \(V_P(t)\):* Using
+operating point three (7V center). Use the plot from matlab to estimate
+second order parameters.
+
+1) Estimate \(K\),\(\zeta\) and \(\omega_n\) for a prototype second
+   order transfer function from your measured step response metrics.
+
+*Estimated gain \(K\), damping factor \(\zeta\), and natural frequency
+\(\omega_n\):* From visual inspection we can see there is no overshoot
+in the tank level so we can assume the system is
+overdamped(\(1<\zeta\)). Use the prototype second order transfer
+function, \[T(s)=\dfrac{K\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2}\]
+Start by estimating the gain using the change in tank 2 level after a
+unit step. \[K=\dfrac{\Delta y}{\Delta u}\] Where \(\Delta u\) is the
+voltage step change and \(\Delta y\) is the tank 2 output change, Check
+multiple step changes to confirm the gain estimation.
+
+\[K_1=\dfrac{11.43-14.89}{6-7}=3.46\]
+\[K_2=\dfrac{17.37-13.70}{8-7}=3.67\] The is some error in these
+calculations due to the noise in the output signl \(h_2\). Using this
+estimate the gain to be \(K=3.5\).
+
+Using the results from the previous table (:TODO: add refrence to table
+if we want) aswell as via visual inspection from the plot we can
+estimate the 2% settling time to be 17s. Using the settling time and the
+previosly estimated damping ratio we can find \(\omega_n\).
+\[\omega_n\approx\dfrac{4}{\zeta T_s}=0.196\:rad/s\] Plug all values
+into the prototype second order transfer function and plot it to compare
+with the emperical system, \[T(s)=\dfrac{0.1344}{s^2+0.4704s+0.0384}\]
+:TODO: Add the plot i added to the repo. Might not need to do this we
+can just have the one image in the comparison part.
+
+:TODO: *Estimated prototype second order transfer function:*
+
+This is combined with the last part
+
+2) [@2] Use MATLAB's Control Systems Toolbox system identification app
+   to estimate a second order transfer function based on your step
+   response data. :TODO: *Selected operating point initial and final
+   value for \(V_P(t)\):* Using operating poing 3(same as last part).
+   :TODO: *Estimated gain \(K\), damping factor \(\zeta\), and natural
+   frequency \(\omega_n\):*
+   \(K=0.1520\),\(\zeta=0.87\),\(\omega_n=0.0741\:rad/s\) :TODO:
+   *Estimated prototype second order transfer function:*
+   \[T(s)=\dfrac{0.01126}{s^2+0.129s+0.005497}\]
+
+*Comment on the differences between the empirical models, how well this
+fit the data, and any differences between the empirical estimation and
+that developed from theory.* :TODO: add image here of the comparison
+betwwen the two modles. Both estimations fit the empirical data
+relativley well. Both estimations follow the shape of the actual
+response. The theoretical estimation appears to have a smaller rise time
+than the actual response aswell as a small DC offset, however it follows
+the same general shape. The MATLAB estimation rise time appears to be
+closer to that of the actual response. There is still some small DC
+offset noticeable but it is smaller than the theoretical estimation.
+
+*** 2. Use you empirical models to calculate the expected step response metrics (gain, settling time, rise time) at one of your other operating points for the same step size as applied in your Part 2 testing (as in previous table).
+:PROPERTIES:
+:CUSTOM_ID: use-you-empirical-models-to-calculate-the-expected-step-response-metrics-gain-settling-time-rise-time-at-one-of-your-other-operating-points-for-the-same-step-size-as-applied-in-your-part-2-testing-as-in-previous-table.
+:END:
+*Selected operating point initial and final value for \(V_p(t)\):*
+Select the operating point centered at 9V. :TODO: *Predicted step
+response metrics (gain, rise time, settling time) for each model at the
+selected operating point:* Theoretical Model
+
+MATLAB Model
+
+:TODO: *How well do your empirical models generalise to different
+operating points or initial conditions?* :TODO: add op2 comparison plot
+The general shape of both estimations fit to the different operating
+points well. The MATLAB estimations fits very well to this 9V operating
+point with no noticable offset present. The shape of the theoretical
+esitmation response matches the actual response well but there is a
+small DC offset present. This is likely due to the gain being slightly
+off.

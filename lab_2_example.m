@@ -29,38 +29,38 @@ step_op3 = OP_3.ref_signal.Data;
 
 
 
-Fig_1 = figure('visible', 'off');
+Fig_1 = figure
 plot(time_op1, smooth(h1_op1)); % may need smoothing - depending on how noisy the signal is
 hold on;
 plot(time_op1, smooth(h2_op1));
 hold on;
 plot(time_op1, step_op1);
-title("Operating Point 1")
+title("Operating Point 3")
 legend("Tank 1", "Tank 2", "Voltage", 'Location', 'southeast')
-saveas(gcf, 'ENG331_Lab_2_OP_1.png'); % matlab crashes if i render it. So save it to a png
+saveas(gcf, 'ENG331_Lab_2_OP_3.png'); % matlab crashes if i render it. So save it to a png
 
-Fig_2 = figure('visible', 'off');
+Fig_2 = figure
 plot(time_op2, smooth(h1_op2));
 hold on;
 plot(time_op2, smooth(h2_op2));
 hold on;
 plot(time_op2, step_op2);
-title("Operating Point 2")
+title("Operating Point 1")
 legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
-saveas(gcf, 'ENG331_Lab_2_OP_2.png');
+saveas(gcf, 'ENG331_Lab_2_OP_1.png');
 
 
-Fig_3 = figure('visible', 'off');
+Fig_3 = figure
 plot(time_op3, smooth(h1_op3));
 hold on;
 plot(time_op3, smooth(h2_op3));
 hold on;
 plot(time_op3, step_op3);
-title("Operating Point 3")
+title("Operating Point 2")
 legend("Tank 1", "Tank 2", "Voltage", 'Location','southeast')
-saveas(gcf, 'ENG331_Lab_2_OP_3.png');
+saveas(gcf, 'ENG331_Lab_2_OP_2.png');
 
-Fig_4 = figure('visible', 'off');
+Fig_4 = figure
 plot(time_op3, smooth(h1_op3)); hold on;
 plot(time_op3, smooth(h2_op3));
 plot(time_op3, step_op3);
@@ -98,14 +98,14 @@ plot(time_op3, y_hat2, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems 
 
 saveas(gcf, 'ENG331_Lab_2_Comparison.png');
 
-Fig_5 = figure('visible', 'off');
+Fig_5 = figure
 plot(time_op1, smooth(h1_op1)); 
 hold on;
 plot(time_op1, smooth(h2_op1));
 hold on;
 plot(time_op1, step_op1);
 hold on;
-title("2nd Order Estimations vs 9V Operating Point");
+title("2nd Order Estimations vs Operating Point 3");
 legend("h1", "h2", "Step Input",'Location','southeast');
 du1 = step_op1 - step_op1(1);
 dy_hat3 = lsim(G, du1, time_op1);   % modelled delta output
@@ -115,7 +115,7 @@ dy_hat4 = lsim(tf1, du1, time_op1);   % modelled delta output
 y_hat4 = 19.5+dy_hat4 ;
 plot(time_op1, y_hat4, 'k--', 'LineWidth', 1.5, 'DisplayName', 'Control Systems Toolbox Estimation');
 
-saveas(gcf, 'ENG331_Lab_2_Comparison_OP_1.png');
+saveas(gcf, 'ENG331_Lab_2_Comparison_OP_3.png');
 
 % find final value, gain, settling time, rise time ....
 
